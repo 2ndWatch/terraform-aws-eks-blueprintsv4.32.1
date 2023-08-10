@@ -9,14 +9,14 @@ def get_examples():
     returning a string formatted json array of the example directories minus those that are excluded
     """
     exclude = {
-        'examples/appmesh-mtls',  # excluded until Rout53 is setup
-        'examples/blue-green-upgrade/environment',
-        'examples/blue-green-upgrade/modules/eks_cluster'
+        'patterns/appmesh-mtls',  # excluded until Rout53 is setup
+        'patterns/blue-green-upgrade/environment',
+        'patterns/blue-green-upgrade/modules/eks_cluster'
     }
 
     projects = {
         x.replace('/versions.tf', '')
-        for x in glob.glob('examples/**/versions.tf', recursive=True)
+        for x in glob.glob('patterns/**/versions.tf', recursive=True)
         if not re.match(r'^.+/_', x)
     }
 
